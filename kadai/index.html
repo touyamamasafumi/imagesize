@@ -22,16 +22,17 @@
             image.onload = function() {
               result = {name: image.name, width: image.naturalWidth, height: image.naturalHeight};
               console.log(result);
-            }
-            image.src = URL.createObjectURL(file.files[0]);
-          }
 
+            }
+          image.src = URL.createObjectURL(file.files[0]);
+        }
 
     </script>
   </head>
   <body>
-    <input type="file" id="file" name="upfile[]" webkitdirectory onchange="fileload()">
-    <input type="button" value="ボタン" onclick="fileload();">
+    <h1>画像サイズ取得</h1>
+    <input type="file" id="file" onchange="fileload()">
+    <!-- <input type="button" value="ボタン" onclick="fileload()"> -->
     <p></p>
   </body>
 </html>
