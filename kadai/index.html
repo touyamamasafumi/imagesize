@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>画像サイズ取得</title>
+    <script type="text/javascript">
+        // function test(){
+        //   var obj = document.getElementById('file');
+        //
+        //   var nw = obj.naturalWidth;   //元サイズ（幅）
+        //   var nh = obj.naturalHeight;  //元サイズ（高さ）
+        //
+        //   var str = `サイズ：${nw}x${nh}です。`;
+        //   alert(str);
+        // };
+
+          function fileload() {
+            if ( ! file.files[0] ){
+              return;
+            }
+            image = new Image();
+            image.onload = function() {
+              result = {name: image.name, width: image.naturalWidth, height: image.naturalHeight};
+              console.log(result);
+            }
+            image.src = URL.createObjectURL(file.files[0]);
+          }
+
+
+    </script>
+  </head>
+  <body>
+    <input type="file" id="file" name="upfile[]" webkitdirectory onchange="fileload()">
+    <input type="button" value="ボタン" onclick="fileload();">
+    <p></p>
+  </body>
+</html>
