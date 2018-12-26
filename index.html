@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>画像サイズ取得</title>
+    <link rel="stylesheet" href="assets/css/master.css">
     <script type="text/javascript">
         // function test(){
         //   var obj = document.getElementById('file');
@@ -20,9 +21,11 @@
             }
             image = new Image();
             image.onload = function() {
-              result = {name: image.name, width: image.naturalWidth, height: image.naturalHeight};
-              console.log(result);
-
+              result = { width: image.naturalWidth, height: image.naturalHeight};
+              target = document.getElementById("w_output");
+              target.innerHTML = image.naturalWidth;
+              target = document.getElementById("h_output");
+              target.innerHTML = image.naturalHeight;
             }
           image.src = URL.createObjectURL(file.files[0]);
         }
@@ -33,6 +36,7 @@
     <h1>画像サイズ取得</h1>
     <input type="file" id="file" onchange="fileload()">
     <!-- <input type="button" value="ボタン" onclick="fileload()"> -->
-    <p></p>
+    <p id="w_output"></p>
+    <p id="h_output"></p>
   </body>
 </html>

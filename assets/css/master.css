@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+p#w_output::before {
+  content: 'width:';
+}
+p#h_output::before {
+  content: 'height:';
+}
